@@ -87,4 +87,24 @@ class ProductList {
     this.cart.addProduct(id);
     window.showAlert('Product added to cart');
   }
+  
+  function searchFunction() {
+  // Declare variables
+  let input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('search');
+  filter = input.value.toUpperCase();
+  ul = document.querySelector('.card');
+  li = ul.getElementsByTagName('h4');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    name = li[i].getElementsByTagName("p")[0];
+    txtValue = name.textContent || name.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "h4";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
 }
